@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Walasmulla National School | Wisdom & Virtue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Rajdhani', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        school: {
+                            navy: '#042695',
+                            gold: '#f0c126',
+                            dark: '#020205',
+                            glass: 'rgba(255, 255, 255, 0.05)',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #020205;
+            color: #ffffff;
+            overflow-x: hidden;
+            width: 100vw;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #050510;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #f0c126;
+            border-radius: 4px;
+        }
+
+        /* Futuristic Background Mesh */
+        .bg-grid {
+            background-size: 50px 50px;
+            background-image:
+                linear-gradient(to right, rgba(240, 193, 38, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(4, 38, 149, 0.05) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .glass-card {
+            background: rgba(4, 38, 149, 0.1);
+            /* Navy tint */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(240, 193, 38, 0.2);
+            /* Gold border */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(240, 193, 38, 0.5);
+            /* Gold Glow */
+        }
+
+        .blue-glow {
+            text-shadow: 0 0 20px rgba(4, 38, 149, 0.8);
+        }
+
+        .clip-path-slant {
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .clip-path-slant-reverse {
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+        }
+    </style>
+</head>
+
+<body class="relative text-base md:text-lg">
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div class="bg-grid absolute inset-0"></div>
+        <div class="glow-orb w-64 h-64 md:w-96 md:h-96 bg-school-navy top-0 left-0 animate-pulse-slow opacity-30"></div>
+        <div class="glow-orb w-80 h-80 md:w-[500px] md:h-[500px] bg-school-gold bottom-0 right-0 animate-pulse-slow opacity-20"
+            style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 top-0 bg-transparent" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 md:py-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group z-50 relative">
+                <!-- Make sure logo exists in images folder or handle generic alt -->
+                <img src="images/wns-logo.png" alt="Walasmulla NS Logo"
+                    class="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_0_10px_rgba(240,193,38,0.5)]">
+                <div class="flex flex-col">
+                    <span class="text-xl md:text-2xl font-display font-black tracking-widest text-white leading-none">
+                        WALASMULLA
+                    </span>
+                    <span class="text-xs md:text-sm font-sans font-bold tracking-[0.2em] text-school-gold">
+                        NATIONAL SCHOOL
+                    </span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 font-medium tracking-wider text-sm">
+                <a href="#academics" class="hover:text-school-gold transition-colors uppercase">Academics</a>
+                <a href="#about" class="hover:text-school-gold transition-colors uppercase">Legacy</a>
+                <a href="#news" class="hover:text-school-gold transition-colors uppercase">News</a>
+                <a href="#contact"
+                    class="px-6 py-2 border border-school-gold text-school-gold hover:bg-school-gold hover:text-black transition-all duration-300 clip-path-slant uppercase font-bold text-xs tracking-widest">
+                    Admissions
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-2xl text-white z-50 relative p-2 focus:outline-none" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars-staggered" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-[#020205] z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center gap-8 md:hidden h-screen w-screen overflow-hidden">
+            <div class="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
+            <a href="#academics" class="text-3xl font-display font-bold text-white hover:text-school-gold"
+                onclick="toggleMenu()">Academics</a>
+            <a href="#about" class="text-3xl font-display font-bold text-white hover:text-school-gold"
+                onclick="toggleMenu()">Legacy</a>
+            <a href="#news" class="text-3xl font-display font-bold text-white hover:text-school-gold"
+                onclick="toggleMenu()">News</a>
+            <a href="#contact"
+                class="text-3xl font-display font-bold text-school-gold border-b-2 border-school-gold pb-2"
+                onclick="toggleMenu()">Admissions</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-[100dvh] flex items-center pt-24 pb-12 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center">
+            <div class="z-10 space-y-6 md:space-y-8 text-center lg:text-left order-1">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-school-gold/30 bg-school-gold/10 text-school-gold text-xs font-bold tracking-widest uppercase mb-2 md:mb-4">
+                    <span class="w-2 h-2 rounded-full bg-school-gold animate-ping"></span>
+                    Est. 1889
+                </div>
+                <!-- Main Headline -->
+                <h1
+                    class="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-display font-black leading-tight break-words">
+                    BUILDING <br>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-school-gold to-white text-glow">FUTURE
+                        LEADERS</span>
+                    WITH <span class="text-school-navy blue-glow stroke-text"
+                        style="-webkit-text-stroke: 1px #042695;">PRIDE</span>
+                </h1>
+                <p
+                    class="text-gray-300 text-base md:text-xl max-w-lg mx-auto lg:mx-0 leading-relaxed font-light px-2 lg:px-0">
+                    A legacy of excellence in education, sports, and character building. Walasmulla National School
+                    empowers every student to achieve their highest potential.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start px-4 lg:px-0">
+                    <a href="#academics"
+                        class="group relative px-8 py-4 bg-school-gold text-black font-bold font-display uppercase tracking-wider overflow-hidden w-full sm:w-auto text-center">
+                        <span class="relative z-10 group-hover:text-white transition-colors duration-300">Our
+                            Programs</span>
+                        <div
+                            class="absolute inset-0 bg-school-navy transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out">
+                        </div>
+                    </a>
+                    <a href="#contact"
+                        class="px-8 py-4 border border-white/20 hover:border-school-gold hover:text-school-gold transition-colors font-display font-bold uppercase tracking-wider text-center w-full sm:w-auto">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3D Abstract Element / Hero Viz -->
+            <div class="relative z-0 flex justify-center lg:justify-end mt-8 lg:mt-0 order-2">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <!-- Spinning Rings -->
+                    <div
+                        class="absolute inset-0 border-2 border-school-navy rounded-full animate-[spin_10s_linear_infinite]">
+                    </div>
+                    <div
+                        class="absolute inset-4 border border-school-gold/50 rounded-full animate-[spin_15s_linear_infinite_reverse]">
+                    </div>
+
+                    <!-- Center Logo/Icon -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <!-- Placeholder for a 3D looking crest or abstract symbol -->
+                        <div
+                            class="relative w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-school-navy to-black p-1 clip-path-slant glass-card animate-float flex items-center justify-center">
+                            <img src="images/wns-logo.png" alt="Core"
+                                class="w-24 h-24 object-contain drop-shadow-[0_0_15px_rgba(240,193,38,0.8)]">
+                        </div>
+                    </div>
+
+                    <!-- Decorative floating elements -->
+                    <div class="absolute top-0 right-0 p-3 md:p-4 glass-card rounded-lg animate-float"
+                        style="animation-delay: 1s;">
+                        <i class="fa-solid fa-graduation-cap text-2xl md:text-4xl text-school-gold"></i>
+                    </div>
+                    <div class="absolute bottom-10 -left-6 md:-left-10 p-3 md:p-4 glass-card rounded-lg animate-float"
+                        style="animation-delay: 2s;">
+                        <i class="fa-solid fa-book-open text-2xl md:text-4xl text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+            class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 hidden md:flex">
+            <span class="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-school-gold to-transparent"></div>
+        </div>
+    </header>
+
+    <!-- Marquee Bar -->
+    <div class="border-y border-white/10 bg-black/50 backdrop-blur-sm py-3 md:py-4 overflow-hidden w-full">
+        <div class="flex whitespace-nowrap gap-8 md:gap-12 animate-[scroll_20s_linear_infinite] min-w-full">
+            <span class="text-lg md:text-2xl font-display font-bold text-white/20 uppercase">Education</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-school-gold uppercase">♦</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-white/20 uppercase">Discipline</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-school-navy uppercase">♦</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-white/20 uppercase">Sports</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-school-gold uppercase">♦</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-white/20 uppercase">Leadership</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-school-navy uppercase">♦</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-white/20 uppercase">Research</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-school-gold uppercase">♦</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-white/20 uppercase">Arts</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-school-navy uppercase">♦</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-white/20 uppercase">Innovation</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-school-gold uppercase">♦</span>
+            <span class="text-lg md:text-2xl font-display font-bold text-white/20 uppercase">Unity</span>
+        </div>
+    </div>
+
+    <!-- Academics / Services -->
+    <section id="academics" class="py-20 md:py-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12 md:mb-20 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl lg:text-6xl font-display font-bold mb-4 md:mb-6">
+                    ACADEMIC <span class="text-school-gold">PATHWAYS</span>
+                </h2>
+                <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto md:mx-0">
+                    Comprehensive study streams designed to prepare students for university and professional success.
+                </p>
+                <div class="h-1 w-20 bg-school-gold mt-6 mx-auto md:mx-0"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+                <!-- Physical Science -->
+                <div
+                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-school-gold md:border-l-transparent md:hover:border-l-school-gold">
+                    <div
+                        class="w-12 h-12 rounded-full bg-school-gold/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-atom text-xl text-school-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold mb-3 text-white">Physical Science</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Mathematics, Physics, Chemistry, and IT foundations for future engineers and innovators.
+                    </p>
+                </div>
+
+                <!-- Bio Science -->
+                <div
+                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-school-navy md:border-l-transparent md:hover:border-l-school-navy">
+                    <div
+                        class="w-12 h-12 rounded-full bg-school-navy/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-dna text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold mb-3 text-white">Bio Science</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Biology, Chemistry, and Agricultural Sciences shaping the doctors and researchers of tomorrow.
+                    </p>
+                </div>
+
+                <!-- Commerce -->
+                <div
+                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-white md:border-l-transparent md:hover:border-l-white">
+                    <div
+                        class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chart-line text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold mb-3 text-white">Commerce</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Business Studies, specialized Accounting, and Economics for future corporate leaders.
+                    </p>
+                </div>
+
+                <!-- Arts -->
+                <div
+                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-school-gold md:border-l-transparent md:hover:border-l-school-gold">
+                    <div
+                        class="w-12 h-12 rounded-full bg-school-gold/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-palette text-xl text-school-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-bold mb-3 text-white">Arts</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Languages, Humanities, and Social Sciences fostering creativity and critical thinking.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Legacy Section (Equivalent to "Meet Your Tutor") -->
+    <section id="about" class="py-20 md:py-32 relative bg-black/50">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-96 h-96 bg-school-navy/20 blur-[100px] -z-10">
+        </div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Visual Side -->
+                <div class="relative mb-8 lg:mb-0">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-school-gold to-school-navy opacity-10 blur-3xl -z-10">
+                    </div>
+                    <div class="glass-card p-2 relative z-10 clip-path-slant">
+                        <!-- Use a generic school placeholder or user image if available -->
+                        <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixid=M3w0MzUxNjF8MHwxfHNlYXJjaHw5fHxzY2hvb2wlMjBidWlsZGluZ3xlbnwwfHx8fDE3NjU4OTkyNTR8MA&ixlib=rb-4.1.0&fit=crop&w=1280&q=80"
+                            alt="School Premises"
+                            class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700 opacity-90 hover:opacity-100">
+                    </div>
+                    <!-- Stats Card -->
+                    <div
+                        class="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 glass-card p-4 md:p-6 max-w-[200px] md:max-w-xs animate-float z-20">
+                        <div class="flex items-center gap-3">
+                            <div class="text-3xl md:text-4xl font-display font-bold text-school-gold">3000+</div>
+                            <div class="text-[10px] md:text-sm uppercase leading-tight text-gray-400">Students
+                                <br>Enrolled</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Side -->
+                <div>
+                    <div class="inline-flex items-center gap-2 mb-4 md:mb-6">
+                        <i class="fa-solid fa-landmark text-school-gold"></i>
+                        <span class="text-sm font-bold uppercase tracking-widest text-school-gold">Our Heritage</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl lg:text-6xl font-display font-bold mb-6 md:mb-8 leading-tight">
+                        A TRADITION OF <span
+                            class="text-school-navy bg-school-gold px-2 block md:inline mt-2 md:mt-0">EXCELLENCE</span>
+                    </h2>
+                    <p class="text-gray-300 text-base md:text-lg mb-6 leading-relaxed">
+                        Since 1889, Walasmulla National School has been a beacon of education in the region. We are
+                        dedicated to molding disciplined, knowledgeable, and capable citizens who contribute
+                        meaningfully to society.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-check text-school-gold mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Student-Centered Learning</h4>
+                                <p class="text-sm text-gray-500">Modern teaching methodologies that focus on individual
+                                    growth.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-trophy text-school-gold mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Sports & Co-curriculars</h4>
+                                <p class="text-sm text-gray-500">State-of-the-art facilities for cricket, athletics, and
+                                    performing arts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Insights -->
+    <section id="news" class="py-20 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-2">SCHOOL <span
+                            class="text-school-gold">NEWS</span></h2>
+                    <p class="text-gray-400">Latest updates and achievements from our community.</p>
+                </div>
+                <button
+                    class="text-sm font-bold uppercase tracking-widest border-b border-school-gold pb-1 hover:text-school-gold transition-colors text-white">
+                    View Archive
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- News 1 -->
+                <div class="group relative overflow-hidden aspect-[4/3] bg-gray-900 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=80"
+                        alt="Sports Day"
+                        class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <span
+                            class="text-school-gold text-xs font-bold tracking-widest uppercase mb-1 block">Sports</span>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">ANNUAL SPORTS MEET 2025</h3>
+                        <p
+                            class="text-gray-300 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Blue House takes the championship trophy in a stunning display of athletics.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- News 2 -->
+                <div class="group relative overflow-hidden aspect-[4/3] bg-gray-900 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+                        alt="Exam Results"
+                        class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <span
+                            class="text-school-gold text-xs font-bold tracking-widest uppercase mb-1 block">Academics</span>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">TOP ISLAND RANKINGS</h3>
+                        <p
+                            class="text-gray-300 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Congratulations to our students for exceptional performance in the A/L examinations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- News 3 -->
+                <div class="group relative overflow-hidden aspect-[4/3] bg-gray-900 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80"
+                        alt="Cultural Event"
+                        class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <span
+                            class="text-school-gold text-xs font-bold tracking-widest uppercase mb-1 block">Events</span>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">POSON CELEBRATIONS</h3>
+                        <p
+                            class="text-gray-300 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Student-organized Dansala and Bakthi Gee program illuminated the school grounds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="py-16 border-y border-white/5 bg-school-navy/10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-3xl md:text-5xl font-display font-bold text-white">130<span
+                        class="text-school-gold">+</span></div>
+                <div class="text-xs uppercase tracking-widest text-gray-500 mt-2">Years History</div>
+            </div>
+            <div>
+                <div class="text-3xl md:text-5xl font-display font-bold text-white">150<span class="text-white">+</span>
+                </div>
+                <div class="text-xs uppercase tracking-widest text-gray-500 mt-2">Teachers</div>
+            </div>
+            <div>
+                <div class="text-3xl md:text-5xl font-display font-bold text-white">35<span
+                        class="text-school-gold">+</span></div>
+                <div class="text-xs uppercase tracking-widest text-gray-500 mt-2">Clubs & Societies</div>
+            </div>
+            <div>
+                <!-- 98% pass rate example -->
+                <div class="text-3xl md:text-5xl font-display font-bold text-white">95<span
+                        class="text-school-gold">%</span></div>
+                <div class="text-xs uppercase tracking-widest text-gray-500 mt-2">University Qual.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 md:py-32 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-school-navy/20 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-6xl font-display font-bold mb-4 md:mb-8">GET IN <span
+                        class="text-school-gold">TOUCH</span></h2>
+                <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
+                    For admissions inquiries, certificates, or general information.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Info -->
+                <div class="space-y-6 md:space-y-8 order-2 lg:order-1">
+                    <div class="glass-card p-6 md:p-8 flex items-start gap-4 md:gap-6 border-l-4 border-l-school-gold">
+                        <div class="w-10 h-10 bg-white/5 flex items-center justify-center text-school-gold">
+                            <i class="fa-solid fa-location-dot text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-display font-bold mb-2 text-white">Address</h4>
+                            <p class="text-gray-400">Walasmulla National School,<br>Walasmulla, Sri Lanka</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 md:p-8 flex items-start gap-4 md:gap-6 border-l-4 border-l-white">
+                        <div class="w-10 h-10 bg-white/5 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-phone text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-display font-bold mb-2 text-white">Phone</h4>
+                            <p class="text-gray-400 text-lg tracking-wider">047-2245226</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 md:p-8 flex items-start gap-4 md:gap-6 border-l-4 border-l-school-navy">
+                        <div class="w-10 h-10 bg-white/5 flex items-center justify-center text-school-navy">
+                            <i class="fa-solid fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-display font-bold mb-2 text-white">Email</h4>
+                            <p class="text-gray-400">info@walasmullans.lk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="order-1 lg:order-2">
+                    <form class="space-y-4 md:space-y-6" onsubmit="event.preventDefault(); alert('Message Sent!');">
+                        <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+                            <div class="space-y-2">
+                                <label
+                                    class="text-xs font-bold uppercase tracking-widest text-school-gold ml-1">Name</label>
+                                <input type="text" placeholder="Your Name"
+                                    class="w-full bg-white/5 border border-white/10 p-4 focus:border-school-gold focus:outline-none text-white transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-xs font-bold uppercase tracking-widest text-school-gold ml-1">Email</label>
+                                <input type="email" placeholder="email@example.com"
+                                    class="w-full bg-white/5 border border-white/10 p-4 focus:border-school-gold focus:outline-none text-white transition-all">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="text-xs font-bold uppercase tracking-widest text-school-gold ml-1">Message</label>
+                            <textarea rows="5" placeholder="How can we help?"
+                                class="w-full bg-white/5 border border-white/10 p-4 focus:border-school-gold focus:outline-none text-white transition-all"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full py-4 bg-gradient-to-r from-school-gold to-white text-black font-display font-bold uppercase tracking-widest hover:shadow-[0_0_20px_rgba(240,193,38,0.4)] transition-all duration-300 clip-path-slant">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-black pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="col-span-1 md:col-span-2">
+                <a href="#"
+                    class="text-2xl font-display font-black tracking-widest text-white flex items-center gap-2 mb-6">
+                    <!-- Footer Logo -->
+                    <div class="w-8 h-8 rounded bg-school-gold/20 flex items-center justify-center">
+                        <i class="fa-solid fa-graduation-cap text-school-gold"></i>
+                    </div>
+                    WALAS<span class="text-school-gold">MULLA</span>
+                </a>
+                <p class="text-gray-500 max-w-sm text-sm leading-relaxed">
+                    Empowering the next generation with knowledge, discipline, and wisdom.
+                    <br><br>
+                    "Wisdom is the ultimate wealth"
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-display font-bold text-white mb-6 uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-3 text-gray-500 text-sm">
+                    <li><a href="#" class="hover:text-school-gold transition-colors">Home</a></li>
+                    <li><a href="#academics" class="hover:text-school-gold transition-colors">Academics</a></li>
+                    <li><a href="#about" class="hover:text-school-gold transition-colors">History</a></li>
+                    <li><a href="#contact" class="hover:text-school-gold transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-display font-bold text-white mb-6 uppercase tracking-wider">Connect</h4>
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="w-10 h-10 border border-white/20 flex items-center justify-center text-white hover:bg-school-navy hover:border-school-navy transition-all">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 text-center pt-8 border-t border-white/5">
+            <p class="text-gray-600 text-xs text-opacity-50">© 2025 Walasmulla National School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#020205]/95', 'backdrop-blur-md', 'shadow-lg');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.add('bg-transparent');
+                navbar.classList.remove('bg-[#020205]/95', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+
+        // Mobile Menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const body = document.body;
+
+            if (menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+                icon.classList.remove('fa-bars-staggered');
+                icon.classList.add('fa-xmark');
+                body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('translate-x-full');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars-staggered');
+                body.style.overflow = 'auto';
+            }
+        }
+
+        // Animations on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
