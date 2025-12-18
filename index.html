@@ -109,6 +109,56 @@
         .clip-path-slant-reverse {
             clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
         }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .stagger-1 {
+            transition-delay: 100ms;
+        }
+
+        .stagger-2 {
+            transition-delay: 200ms;
+        }
+
+        .stagger-3 {
+            transition-delay: 300ms;
+        }
+
+        .stagger-4 {
+            transition-delay: 400ms;
+        }
     </style>
 </head>
 
@@ -125,8 +175,7 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 top-0 bg-transparent" id="navbar">
         <div class="max-w-7xl mx-auto px-6 py-4 md:py-6 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3 group z-50 relative">
-                <!-- Make sure logo exists in images folder or handle generic alt -->
+            <a href="#" class="flex items-center gap-3 group z-50 relative reveal stagger-1">
                 <img src="images/wns-logo.png" alt="Walasmulla NS Logo"
                     class="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_0_10px_rgba(240,193,38,0.5)]">
                 <div class="flex flex-col">
@@ -139,7 +188,7 @@
                 </div>
             </a>
 
-            <div class="hidden md:flex items-center gap-8 font-medium tracking-wider text-sm">
+            <div class="hidden md:flex items-center gap-8 font-medium tracking-wider text-sm reveal stagger-2">
                 <a href="#academics" class="hover:text-school-gold transition-colors uppercase">Academics</a>
                 <a href="#about" class="hover:text-school-gold transition-colors uppercase">Legacy</a>
                 <a href="#news" class="hover:text-school-gold transition-colors uppercase">News</a>
@@ -176,13 +225,13 @@
         <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center">
             <div class="z-10 space-y-6 md:space-y-8 text-center lg:text-left order-1">
                 <div
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-school-gold/30 bg-school-gold/10 text-school-gold text-xs font-bold tracking-widest uppercase mb-2 md:mb-4">
+                    class="reveal stagger-1 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-school-gold/30 bg-school-gold/10 text-school-gold text-xs font-bold tracking-widest uppercase mb-2 md:mb-4">
                     <span class="w-2 h-2 rounded-full bg-school-gold animate-ping"></span>
                     Est. 1889
                 </div>
                 <!-- Main Headline -->
                 <h1
-                    class="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-display font-black leading-tight break-words">
+                    class="reveal stagger-2 text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-display font-black leading-tight break-words">
                     BUILDING <br>
                     <span
                         class="text-transparent bg-clip-text bg-gradient-to-r from-school-gold to-white text-glow">FUTURE
@@ -191,11 +240,12 @@
                         style="-webkit-text-stroke: 1px #042695;">PRIDE</span>
                 </h1>
                 <p
-                    class="text-gray-300 text-base md:text-xl max-w-lg mx-auto lg:mx-0 leading-relaxed font-light px-2 lg:px-0">
+                    class="reveal stagger-3 text-gray-300 text-base md:text-xl max-w-lg mx-auto lg:mx-0 leading-relaxed font-light px-2 lg:px-0">
                     A legacy of excellence in education, sports, and character building. Walasmulla National School
                     empowers every student to achieve their highest potential.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start px-4 lg:px-0">
+                <div
+                    class="reveal stagger-4 flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start px-4 lg:px-0">
                     <a href="#academics"
                         class="group relative px-8 py-4 bg-school-gold text-black font-bold font-display uppercase tracking-wider overflow-hidden w-full sm:w-auto text-center">
                         <span class="relative z-10 group-hover:text-white transition-colors duration-300">Our
@@ -212,7 +262,7 @@
             </div>
 
             <!-- 3D Abstract Element / Hero Viz -->
-            <div class="relative z-0 flex justify-center lg:justify-end mt-8 lg:mt-0 order-2">
+            <div class="relative z-0 flex justify-center lg:justify-end mt-8 lg:mt-0 order-2 reveal-left stagger-3">
                 <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                     <!-- Spinning Rings -->
                     <div
@@ -224,7 +274,6 @@
 
                     <!-- Center Logo/Icon -->
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <!-- Placeholder for a 3D looking crest or abstract symbol -->
                         <div
                             class="relative w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-school-navy to-black p-1 clip-path-slant glass-card animate-float flex items-center justify-center">
                             <img src="images/wns-logo.png" alt="Core"
@@ -247,14 +296,14 @@
 
         <!-- Scroll Indicator -->
         <div
-            class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 hidden md:flex">
+            class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 hidden md:flex reveal stagger-4">
             <span class="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
             <div class="w-[1px] h-12 bg-gradient-to-b from-school-gold to-transparent"></div>
         </div>
     </header>
 
     <!-- Marquee Bar -->
-    <div class="border-y border-white/10 bg-black/50 backdrop-blur-sm py-3 md:py-4 overflow-hidden w-full">
+    <div class="border-y border-white/10 bg-black/50 backdrop-blur-sm py-3 md:py-4 overflow-hidden w-full reveal">
         <div class="flex whitespace-nowrap gap-8 md:gap-12 animate-[scroll_20s_linear_infinite] min-w-full">
             <span class="text-lg md:text-2xl font-display font-bold text-white/20 uppercase">Education</span>
             <span class="text-lg md:text-2xl font-display font-bold text-school-gold uppercase">♦</span>
@@ -278,19 +327,19 @@
     <section id="academics" class="py-20 md:py-32 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-12 md:mb-20 text-center md:text-left">
-                <h2 class="text-3xl md:text-4xl lg:text-6xl font-display font-bold mb-4 md:mb-6">
+                <h2 class="reveal text-3xl md:text-4xl lg:text-6xl font-display font-bold mb-4 md:mb-6">
                     ACADEMIC <span class="text-school-gold">PATHWAYS</span>
                 </h2>
-                <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto md:mx-0">
+                <p class="reveal stagger-1 text-gray-400 text-base md:text-lg max-w-2xl mx-auto md:mx-0">
                     Comprehensive study streams designed to prepare students for university and professional success.
                 </p>
-                <div class="h-1 w-20 bg-school-gold mt-6 mx-auto md:mx-0"></div>
+                <div class="reveal stagger-2 h-1 w-20 bg-school-gold mt-6 mx-auto md:mx-0"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
                 <!-- Physical Science -->
                 <div
-                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-school-gold md:border-l-transparent md:hover:border-l-school-gold">
+                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-school-gold md:border-l-transparent md:hover:border-l-school-gold reveal stagger-1">
                     <div
                         class="w-12 h-12 rounded-full bg-school-gold/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-atom text-xl text-school-gold"></i>
@@ -303,7 +352,7 @@
 
                 <!-- Bio Science -->
                 <div
-                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-school-navy md:border-l-transparent md:hover:border-l-school-navy">
+                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-school-navy md:border-l-transparent md:hover:border-l-school-navy reveal stagger-2">
                     <div
                         class="w-12 h-12 rounded-full bg-school-navy/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-dna text-xl text-white"></i>
@@ -316,7 +365,7 @@
 
                 <!-- Commerce -->
                 <div
-                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-white md:border-l-transparent md:hover:border-l-white">
+                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-white md:border-l-transparent md:hover:border-l-white reveal stagger-3">
                     <div
                         class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-chart-line text-xl text-white"></i>
@@ -329,7 +378,7 @@
 
                 <!-- Arts -->
                 <div
-                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-school-gold md:border-l-transparent md:hover:border-l-school-gold">
+                    class="glass-card p-6 group transition-all duration-300 border-l-4 border-l-school-gold md:border-l-transparent md:hover:border-l-school-gold reveal stagger-4">
                     <div
                         class="w-12 h-12 rounded-full bg-school-gold/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-palette text-xl text-school-gold"></i>
@@ -350,7 +399,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <!-- Visual Side -->
-                <div class="relative mb-8 lg:mb-0">
+                <div class="relative mb-8 lg:mb-0 reveal-right">
                     <div
                         class="absolute inset-0 bg-gradient-to-r from-school-gold to-school-navy opacity-10 blur-3xl -z-10">
                     </div>
@@ -362,7 +411,7 @@
                     </div>
                     <!-- Stats Card -->
                     <div
-                        class="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 glass-card p-4 md:p-6 max-w-[200px] md:max-w-xs animate-float z-20">
+                        class="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 glass-card p-4 md:p-6 max-w-[200px] md:max-w-xs animate-float z-20 reveal stagger-2">
                         <div class="flex items-center gap-3">
                             <div class="text-3xl md:text-4xl font-display font-bold text-school-gold">3000+</div>
                             <div class="text-[10px] md:text-sm uppercase leading-tight text-gray-400">Students
@@ -373,22 +422,23 @@
 
                 <!-- Content Side -->
                 <div>
-                    <div class="inline-flex items-center gap-2 mb-4 md:mb-6">
+                    <div class="inline-flex items-center gap-2 mb-4 md:mb-6 reveal">
                         <i class="fa-solid fa-landmark text-school-gold"></i>
                         <span class="text-sm font-bold uppercase tracking-widest text-school-gold">Our Heritage</span>
                     </div>
-                    <h2 class="text-3xl md:text-4xl lg:text-6xl font-display font-bold mb-6 md:mb-8 leading-tight">
+                    <h2
+                        class="reveal stagger-1 text-3xl md:text-4xl lg:text-6xl font-display font-bold mb-6 md:mb-8 leading-tight">
                         A TRADITION OF <span
                             class="text-school-navy bg-school-gold px-2 block md:inline mt-2 md:mt-0">EXCELLENCE</span>
                     </h2>
-                    <p class="text-gray-300 text-base md:text-lg mb-6 leading-relaxed">
+                    <p class="reveal stagger-2 text-gray-300 text-base md:text-lg mb-6 leading-relaxed">
                         Since 1889, Walasmulla National School has been a beacon of education in the region. We are
                         dedicated to molding disciplined, knowledgeable, and capable citizens who contribute
                         meaningfully to society.
                     </p>
 
                     <div class="space-y-6">
-                        <div class="flex items-start gap-4">
+                        <div class="flex items-start gap-4 reveal-left stagger-3">
                             <i class="fa-solid fa-check text-school-gold mt-1"></i>
                             <div>
                                 <h4 class="font-bold text-white text-lg">Student-Centered Learning</h4>
@@ -396,7 +446,7 @@
                                     growth.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
+                        <div class="flex items-start gap-4 reveal-left stagger-4">
                             <i class="fa-solid fa-trophy text-school-gold mt-1"></i>
                             <div>
                                 <h4 class="font-bold text-white text-lg">Sports & Co-curriculars</h4>
@@ -415,19 +465,19 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                 <div>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-2">SCHOOL <span
+                    <h2 class="reveal text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-2">SCHOOL <span
                             class="text-school-gold">NEWS</span></h2>
-                    <p class="text-gray-400">Latest updates and achievements from our community.</p>
+                    <p class="reveal stagger-1 text-gray-400">Latest updates and achievements from our community.</p>
                 </div>
                 <button
-                    class="text-sm font-bold uppercase tracking-widest border-b border-school-gold pb-1 hover:text-school-gold transition-colors text-white">
+                    class="reveal stagger-1 text-sm font-bold uppercase tracking-widest border-b border-school-gold pb-1 hover:text-school-gold transition-colors text-white">
                     View Archive
                 </button>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- News 1 -->
-                <div class="group relative overflow-hidden aspect-[4/3] bg-gray-900 cursor-pointer">
+                <div class="group relative overflow-hidden aspect-[4/3] bg-gray-900 cursor-pointer reveal stagger-1">
                     <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=80"
                         alt="Sports Day"
                         class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
@@ -446,7 +496,7 @@
                 </div>
 
                 <!-- News 2 -->
-                <div class="group relative overflow-hidden aspect-[4/3] bg-gray-900 cursor-pointer">
+                <div class="group relative overflow-hidden aspect-[4/3] bg-gray-900 cursor-pointer reveal stagger-2">
                     <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
                         alt="Exam Results"
                         class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
@@ -465,7 +515,7 @@
                 </div>
 
                 <!-- News 3 -->
-                <div class="group relative overflow-hidden aspect-[4/3] bg-gray-900 cursor-pointer">
+                <div class="group relative overflow-hidden aspect-[4/3] bg-gray-900 cursor-pointer reveal stagger-3">
                     <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80"
                         alt="Cultural Event"
                         class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
@@ -489,22 +539,22 @@
     <!-- Stats Bar -->
     <section class="py-16 border-y border-white/5 bg-school-navy/10">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
+            <div class="reveal stagger-1">
                 <div class="text-3xl md:text-5xl font-display font-bold text-white">130<span
                         class="text-school-gold">+</span></div>
                 <div class="text-xs uppercase tracking-widest text-gray-500 mt-2">Years History</div>
             </div>
-            <div>
+            <div class="reveal stagger-2">
                 <div class="text-3xl md:text-5xl font-display font-bold text-white">150<span class="text-white">+</span>
                 </div>
                 <div class="text-xs uppercase tracking-widest text-gray-500 mt-2">Teachers</div>
             </div>
-            <div>
+            <div class="reveal stagger-3">
                 <div class="text-3xl md:text-5xl font-display font-bold text-white">35<span
                         class="text-school-gold">+</span></div>
                 <div class="text-xs uppercase tracking-widest text-gray-500 mt-2">Clubs & Societies</div>
             </div>
-            <div>
+            <div class="reveal stagger-4">
                 <!-- 98% pass rate example -->
                 <div class="text-3xl md:text-5xl font-display font-bold text-white">95<span
                         class="text-school-gold">%</span></div>
@@ -518,16 +568,16 @@
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-school-navy/20 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl md:text-4xl lg:text-6xl font-display font-bold mb-4 md:mb-8">GET IN <span
+                <h2 class="reveal text-3xl md:text-4xl lg:text-6xl font-display font-bold mb-4 md:mb-8">GET IN <span
                         class="text-school-gold">TOUCH</span></h2>
-                <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
+                <p class="reveal stagger-1 text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
                     For admissions inquiries, certificates, or general information.
                 </p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- Info -->
-                <div class="space-y-6 md:space-y-8 order-2 lg:order-1">
+                <div class="space-y-6 md:space-y-8 order-2 lg:order-1 reveal-right stagger-2">
                     <div class="glass-card p-6 md:p-8 flex items-start gap-4 md:gap-6 border-l-4 border-l-school-gold">
                         <div class="w-10 h-10 bg-white/5 flex items-center justify-center text-school-gold">
                             <i class="fa-solid fa-location-dot text-xl"></i>
@@ -560,7 +610,7 @@
                 </div>
 
                 <!-- Form -->
-                <div class="order-1 lg:order-2">
+                <div class="order-1 lg:order-2 reveal-left stagger-2">
                     <form class="space-y-4 md:space-y-6" onsubmit="event.preventDefault(); alert('Message Sent!');">
                         <div class="grid md:grid-cols-2 gap-4 md:gap-6">
                             <div class="space-y-2">
@@ -674,20 +724,27 @@
             }
         }
 
-        // Animations on Scroll
-        const observer = new IntersectionObserver((entries) => {
+        // Expanded Animation Observer
+        const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    // Add active class to start animation
+                    entry.target.classList.add('active');
+                    // Stop observing once animated
+                    observer.unobserve(entry.target);
                 }
             });
-        });
+        }, observerOptions);
 
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
-            observer.observe(section);
-        });
+        // Target all elements with reveal classes
+        const animatedElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        animatedElements.forEach(el => observer.observe(el));
     </script>
 </body>
 
